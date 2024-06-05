@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estoura Balão</title>
+<style>
+  #balloon {
+    width: 100px;
+    cursor: pointer;
+    transition: transform 0.5s;
+    margin: 200px;
+  }
+  body{
+    background-color: black;
+  }
+  #bombButton{
+    width: 100px;
+    height: 50px;
+  }
+</style>
+</head>
+<body>
+
+<img id="balloon" src="https://emojicdn.elk.sh/🎈" alt="balloon">
+<button id="bombButton">Bomb!</button>
+
+<script>
+  let count = 0;
+  let balloonSize = 1;
+
+  function handleClick() {
+    count++;
+
+    if (count === 5) {
+      alert("BOOOOOOOM! O balão estourou! 🎈💥");
+      count = 0;
+      balloonSize = 1;
+      document.getElementById("balloon").style.transform = "scale(" + balloonSize + ")";
+    }
+  }
+
+  function inflateBalloon() {
+
+    balloonSize += 0.5;
+    document.getElementById("balloon").style.transform = "scale(" + balloonSize + ")";
+  }
+
+  document.getElementById("balloon").addEventListener("click", handleClick);
+
+  document.getElementById("bombButton").addEventListener("click", inflateBalloon);
+</script>
+
+</body>
+</html>
